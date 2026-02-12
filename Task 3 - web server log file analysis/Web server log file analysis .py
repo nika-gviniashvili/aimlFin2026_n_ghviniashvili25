@@ -41,6 +41,6 @@ if not attack.empty:
     print("Attention DDos was Detected")
     print("Start:", attack["time"].min())
     print("End:", attack["time"].max())
-
 else:
     print("No DDoS was detected")
+
