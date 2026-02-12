@@ -4,10 +4,11 @@ A typical CNN has three main parts. First, you’ve got the convolutional layers
 
 In cybersecurity, CNNs play a big role in malware detection. As cyber threats continue to evolve, traditional signature-based methods often struggle to keep up, making advanced machine learning techniques like CNNs increasingly valuable. Researchers often turn malware binaries into grayscale images. By treating binary code as image data, they can leverage the powerful pattern recognition abilities of CNNs, transforming the challenge of malware detection into a visual classification problem. Malicious files usually create distinct visual patterns that safe files just don’t have, since the code structure of malware often differs significantly from that of benign software. The CNN picks up on these differences and learns to sort files as either malicious or safe, providing a sophisticated and adaptable defense mechanism against emerging threats in the digital landscape.
 
-for example we can demonstrate malware classification where benign images contain lower pixel values, while malware images contain higher pixel values.
+For example, we can demonstrate malware classification where benign images contain lower pixel values, while malware images contain higher pixel values.
 Python code: 
 
 #Generating 20 benign and malware images
+
 benign = np.random.rand(20, 10, 10, 1) * 0.3
 malware = np.random.rand(20, 10, 10, 1) * 0.3
 malware[:, 3:7, 3:7, :] += 0.7   # bright center pattern
@@ -27,6 +28,7 @@ model.compile(optimizer='adam',
               metrics=['accuracy'])
 
 #Training the model
+
 model.fit(X, y, epochs=5, verbose=1)
 
 loss, acc = model.evaluate(X, y, verbose=0)
