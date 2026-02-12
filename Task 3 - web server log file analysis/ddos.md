@@ -17,19 +17,34 @@ df = pd.DataFrame(times, columns=["time"])
 df["time"] = df["time"].dt.floor("min")
 traffic = df.groupby("time").size().reset_index(name="count")
 
-Next, I applied Linear Regression using sklearn. I created a simple numeric time index and used it as the independent variable, while the number of requests per minute was used as the dependent variable. The regression model helped me estimate the expected traffic trend over time.
+Next, I applied Linear Regression using the LinearRegression() model from sklearn. I created a simple numeric time index and used it as the independent variable, while the number of requests per minute was used as the dependent variable. The regression model allowed me to estimate the general traffic trend over time.
 
 traffic["x"] = range(len(traffic))
 model = LinearRegression().fit(traffic[["x"]], traffic["count"])
 pred = model.predict(traffic[["x"]])
 
-
-Then, I calculated the difference between the real traffic and the predicted traffic from the regression model. This difference shows how much the actual traffic deviates from the normal trend.
-To detect abnormal spikes, I used a statistical threshold: 
+The model calculated a best-fit line that represents the expected number of requests under normal conditions. After obtaining the predicted values, I compared them with the actual traffic values. The difference between the actual traffic and the predicted traffic is called the residual. This value shows how much the real traffic deviates from the normal trend.
+To detect abnormal spikes, I calculated the residual values and defined a statistical threshold:
 
 limit = res.mean() + 3 * res.std()
 
-If the traffic exceeded this limit, I considered it a potential DDoS pattern.
+If the residual exceeded this limit, it indicated that the real traffic was much higher than what the regression model considered normal. In that case, I marked the corresponding time interval as a potential DDoS attack.
 
 Finally, I generated a graph to visually compare actual traffic and predicted traffic, and after that i have printed the results. 
 The graph shows clearly where the spike has occurred and confirms the detected attack interval.
+
+About Results:
+After running the script, the program identified time intervals where the number of requests was significantly higher than the predicted traffic from the regression model.
+
+The output displayed:
+Attention DDos was Detected
+Start: 2024-03-22 18:09:00+04:00
+End: 2024-03-22 18:13:00+04:00
+
+These timestamps represent the period where traffic exceeded the calculated threshold and was flagged as abnormal.
+In addition to the printed results, I generated a graph that shows both the actual traffic and the predicted traffic from the regression model. In the visualization, the spike is clearly visible as a sharp increase above the regression line. This confirms that the detected interval corresponds to an unusual surge in traffic.
+<img width="1175" height="596" alt="image" src="https://github.com/user-attachments/assets/37840853-4799-477f-aa90-7bb28dd5cea5" />
+
+The visualization further confirmed the detected spike, making the DDoS interval clearly visible.
+
+Overall, this method provided a simple and effective way to detect abnormal traffic patterns using regression analysis.
