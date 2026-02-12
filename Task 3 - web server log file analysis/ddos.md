@@ -42,7 +42,7 @@ Start: 2024-03-22 18:09:00+04:00
 End: 2024-03-22 18:13:00+04:00
 
 These timestamps represent the period where traffic exceeded the calculated threshold and was flagged as abnormal.
-In addition to the printed results, I generated a graph that shows both the actual traffic and the predicted traffic from the regression model. In the visualization, the spike is clearly visible as a sharp increase above the regression line. This confirms that the detected interval corresponds to an unusual surge in traffic.
+In addition to the printed results, I also generated a graph that displays both the actual traffic and the predicted traffic from the regression model. In the visualization, the spike is clearly visible as a sharp increase above the regression line. This confirms that the detected interval corresponds to a sudden surge in requests, which is consistent with the behavior of a DDoS attack.
 <img width="1175" height="596" alt="image" src="https://github.com/user-attachments/assets/37840853-4799-477f-aa90-7bb28dd5cea5" />
 
 The visualization further confirmed the detected spike, making the DDoS interval clearly visible.
