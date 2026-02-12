@@ -7,7 +7,7 @@ In cybersecurity, CNNs play a big role in malware detection. As cyber threats co
 for example we can demonstrate malware classification where benign images contain lower pixel values, while malware images contain higher pixel values.
 Python code: 
 
-# Generating 20 benign and malware images 
+#Generating 20 benign and malware images
 benign = np.random.rand(20, 10, 10, 1) * 0.3
 malware = np.random.rand(20, 10, 10, 1) * 0.3
 malware[:, 3:7, 3:7, :] += 0.7   # bright center pattern
@@ -26,7 +26,7 @@ model.compile(optimizer='adam',
               loss='binary_crossentropy',
               metrics=['accuracy'])
 
-# Training the model
+#Training the model
 model.fit(X, y, epochs=5, verbose=1)
 
 loss, acc = model.evaluate(X, y, verbose=0)
