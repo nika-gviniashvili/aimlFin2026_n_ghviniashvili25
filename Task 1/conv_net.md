@@ -10,6 +10,7 @@ In cybersecurity, CNNs play a big role in malware detection. As cyber threats co
 For example, we can demonstrate malware classification where benign images contain lower pixel values, while malware images contain higher pixel values.
 Python code: 
 import numpy as np
+import matplotlib.pyplot as plt
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, Flatten, Dense
 
@@ -32,6 +33,20 @@ model = Sequential([
 model.compile(optimizer='adam',
               loss='binary_crossentropy',
               metrics=['accuracy'])
+              
+plt.figure(figsize=(6,3))
+
+plt.subplot(1,2,1)
+plt.imshow(benign[0].reshape(10,10), cmap='gray')
+plt.title("Benign Image")
+plt.axis('off')
+
+plt.subplot(1,2,2)
+plt.imshow(malware[0].reshape(10,10), cmap='gray')
+plt.title("Malware Image")
+plt.axis('off')
+
+plt.show()
 
 #Training the model
 
