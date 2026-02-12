@@ -1,6 +1,6 @@
-The Transformer is a modern deep learning architecture introduced in 2017. Unlike Recurrent Neural Networks (RNNs) that slog through input one piece at a time, Transformers look at the whole sequence all at once. This makes them a lot faster and way more efficient, especially with massive datasets. At the core of all this is something called self-attention.
+The Transformer is a modern deep learning architecture introduced in 2017. Unlike Recurrent Neural Networks (RNNs) that slog through input one piece at a time, Transformers look at the whole sequence all at once. This parallel processing makes them significantly faster and more efficient, especially when working with large datasets. The central concept behind the Transformer is a mechanism known as self-attention.
 
-Self-attention is the secret sauce that lets the model figure out which parts of the input really matter and how they’re all connected. Think about a sentence — not every word carries the same weight. Or take cybersecurity logs: one event might hinge on something that happened way earlier. The attention mechanism compares every element in the sequence, highlighting the ones that matter most. That’s how the model picks up on context and those long-range connections.
+Self-attention enables the model to determine which parts of the input are most important and how different elements are related to each other. In a sentence, some words contribute more to the overall meaning than others. Similarly, in cybersecurity logs, one event may depend on another that occurred earlier. The attention mechanism compares all elements in the sequence and assigns greater importance to those that are more relevant. This allows the model to understand context and long-range dependencies
 
 If we look at this image
 
@@ -9,7 +9,7 @@ If we look at this image
 
 We will see an attention layer in action. Every input element connects with the others, with red lines showing where the model zeroes in. Instead of treating each event in isolation, the Transformer pieces together a bigger picture. That’s huge in cybersecurity, where attacks can unfold in several stages, often spaced out over time.
 
-There’s a catch, though. Because Transformers process everything in parallel, they don’t automatically get the order of things. And in real-world data network logs, system events  order isn’t just important, it’s everything. To fix this, Transformers use positional encoding. This technique adds information about where each element sits in the sequence, so the model knows what happened first and how events link up.
+However, because Transformers process input in parallel, they do not automatically understand the order of elements in a sequence. In cybersecurity data such as network logs and system events, order is critical. To address this issue, Transformers use positional encoding. Positional encoding adds information about the position of each element in the sequence, allowing the model to understand what happened first and how events are connected.
 
 <img width="472" height="266" alt="image" src="https://github.com/user-attachments/assets/938b45b0-82d8-4361-bca7-b7af10e07e21" />
 
