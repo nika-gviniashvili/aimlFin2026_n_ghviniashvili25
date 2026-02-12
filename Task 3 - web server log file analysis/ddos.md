@@ -1,5 +1,3 @@
-Task 3 -  Detection of DDoS Attack Using Regression Analysis
-
 In this task, I have analyzed a web server log file to detect possible DDoS attack intervals.
 A DDoS attack usually causes a sudden increase in the number of requests sent to a server within a short period of time. My goal was to identify such abnormal spikes using regression analysis.
 
