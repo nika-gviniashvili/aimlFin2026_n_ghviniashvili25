@@ -1,5 +1,6 @@
 import pandas as pd
 import re
+import matplotlib.pyplot as plt
 from datetime import datetime
 from sklearn.linear_model import LinearRegression
 
@@ -25,6 +26,15 @@ pred = model.predict(traffic[["x"]])
 res = traffic["count"] - pred
 limit = res.mean() + 3 * res.std()
 attack = traffic[res > limit]
+
+#Generating the graph to show DDos spike
+plt.figure(figsize=(12,6))
+plt.plot(traffic["time"], traffic["count"], label="Actual Traffic")
+plt.plot(traffic["time"], pred, label="Predicted Traffic")
+plt.legend()
+plt.xticks(rotation=45)
+plt.title("Actual Traffic vs Predicted Traffic")
+plt.show()
 
 #Printing the results
 if not attack.empty:
