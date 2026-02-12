@@ -1,4 +1,4 @@
-The Transformer is a modern deep learning architecture introduced in 2017. Unlike Recurrent Neural Networks (RNNs) that slog through input one piece at a time, Transformers look at the whole sequence all at once. This parallel processing makes them significantly faster and more efficient, especially when working with large datasets. The central concept behind the Transformer is a mechanism known as self-attention.
+Since their introduction in 2017, Transformers have significantly advanced the field of deep learning. Unlike traditional recurrent neural networks (RNNs), which process data sequentially, Transformers analyze entire sequences simultaneously. This approach greatly increases processing speed and allows the model to handle large datasets efficiently. The central concept behind the Transformer is a mechanism known as self-attention.
 
 Self-attention enables the model to determine which parts of the input are most important and how different elements are related to each other. In a sentence, some words contribute more to the overall meaning than others. Similarly, in cybersecurity logs, one event may depend on another that occurred earlier. The attention mechanism compares all elements in the sequence and assigns greater importance to those that are more relevant. This allows the model to understand context and long-range dependencies
 
@@ -16,7 +16,7 @@ However, because Transformers process input in parallel, they do not automatical
 
 This image shows how positional encoding works. It uses sinusoidal patterns to give each position its own signature across different dimensions. These patterns get added to the input, helping the Transformer keep track of sequence order while still doing everything at once.
 
-Transformers have become a go-to in cybersecurity because security data is both sequential and complicated. They can sift through network traffic and flag weird behavior in intrusion detection systems. For malware, they analyze chains of system calls to spot anything sketchy. They’re even used in phishing detection, reading through email text to catch suspicious language or social engineering tactics. Plus, they can chew through mountains of security logs to find abnormal activity or spot insider threats.
+Transformers have become widely used in cybersecurity because they effectively manage large, complex, and sequential data. They can analyze network traffic to detect anomalies, examine sequences of system calls for signs of malware, and evaluate email content to identify phishing attempts. Their ability to process vast amounts of security data and detect unusual patterns, including insider threats, makes them highly valuable.
 
 Transformers can be pre-trained on huge, general datasets and then fine-tuned for specific cybersecurity jobs with much smaller sets. That flexibility makes them both practical and powerful for today’s security challenges.
 
